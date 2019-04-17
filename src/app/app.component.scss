@@ -1,0 +1,11 @@
+@import "../variables";
+
+header {
+  background-color: $primary-color;
+  border-bottom: 2px solid $contrast-color;
+  display: table-cell;
+  padding: 0 110px;
+  height: 90px;
+  vertical-align: middle;
+  width: 100vw;
+}
