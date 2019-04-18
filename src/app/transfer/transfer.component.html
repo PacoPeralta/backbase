@@ -9,7 +9,7 @@
              placeholder="FROM ACCOUNT"
              [readonly]="true"/>
       <mat-error>
-        Try to add some funds to your account, -$500 limit reached =(
+        Try to add some funds to your account, $ -500.00 limit reached =(
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
@@ -28,12 +28,34 @@
              placeholder="AMOUNT"/>
       <mat-error
         *ngIf="validInput('amount')">
-        Don't you want to send some money?
+        {{getAmountError()}}
       </mat-error>
     </mat-form-field>
     <button mat-raised-button
             [disabled]="!transferForm.valid"
-            color="primary"
             type="submit">Submit</button>
   </form>
+  <div class="transfer-confirmation"
+       [ngClass]="{'show-transfer-confirmation': showTransferDetails}">
+    <h3>Please confirm your transfer details</h3>
+    <div>
+      <h4>From Account</h4>
+      <span>{{ transferForm.get('from_account').value }}</span>
+    </div>
+    <div>
+      <h4>To Account</h4>
+      <span>{{ transferForm.get('to_account').value }}</span>
+    </div>
+    <div>
+      <h4>Amount</h4>
+      <span>{{ transferForm.get('amount').value | currency }}</span>
+    </div>
+    <div>
+      <button mat-raised-button
+              type="submit" (click)="confirmTransfer()">Transfer</button>
+    </div>
+  </div>
+  <div class="background-mask"
+       (click)="closeTransferDetails()"
+       [ngClass]="{'show-background-mask': showTransferDetails}"></div>
 </div>
