@@ -1,0 +1,7 @@
+/*
+Global parameters styles as mixins
+*/
+@mixin disabled{
+  background-color: #f2f2f2;
+  color: #adadad;
+}
