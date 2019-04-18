@@ -1,0 +1,39 @@
+<div class="transfer mat-elevation-z2">
+  <h2>Make a transfer</h2>
+  <form [formGroup]="transferForm"
+        (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <input matInput
+             type="text"
+             formControlName="from_account"
+             placeholder="FROM ACCOUNT"
+             [readonly]="true"/>
+      <mat-error>
+        Try to add some funds to your account, -$500 limit reached =(
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput
+             formControlName="to_account"
+             placeholder="TO ACCOUNT" />
+      <mat-error
+        *ngIf="validInput('to_account')">
+        Don't forget to type an account!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput
+             type="number"
+             formControlName="amount"
+             placeholder="AMOUNT"/>
+      <mat-error
+        *ngIf="validInput('amount')">
+        Don't you want to send some money?
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button
+            [disabled]="!transferForm.valid"
+            color="primary"
+            type="submit">Submit</button>
+  </form>
+</div>

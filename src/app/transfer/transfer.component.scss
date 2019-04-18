@@ -1,0 +1,40 @@
+@import "../../variables";
+@import "../../mixins";
+
+.transfer {
+  background-color: $primary-color;
+
+  h2 {
+    background-color: $secondary-color;
+    background-image: url("../../assets/icons/arrows.png");
+    background-position: 30px center;
+    background-repeat: no-repeat;
+    color: $primary-color;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  form {
+    display: flow-root;
+    padding: 20px 30px;
+
+    mat-form-field {
+      padding-top: 10px;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  button {
+    background-color: $contrast-color;
+    color: $primary-color;
+    float: right;
+    padding: 0 70px;
+
+    &[disabled] {
+      @include disabled();
+    }
+  }
+}
