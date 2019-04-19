@@ -16,6 +16,14 @@
 
     mat-form-field {
       padding-top: 10px;
+
+      span[matprefix] {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 0.8em;
+        left: -10px;
+        position: absolute;
+        top: -12px;
+      }
     }
   }
 
