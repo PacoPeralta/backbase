@@ -15,17 +15,18 @@
       <span>Sort by</span>
       <div class="buttons">
         <button mat-button
-                (click)="sortAction('transactionDate', dateFilterOrder)">DATE <small>&#9658;</small></button>
+                (click)="sortDate()">DATE <small>&#9658;</small></button>
         <button mat-button
-                (click)="sortAction('merchant', beneficiaryFilterOrder)">BENEFICIARY <small>&#9658;</small></button>
+                (click)="sortBeneficiary()">BENEFICIARY <small>&#9658;</small></button>
         <button mat-button
-                (click)="sortAction('amount', amountFilterOrder)">AMOUNT <small>&#9658;</small></button>
+                (click)="sortAmount()">AMOUNT <small>&#9658;</small></button>
       </div>
     </div>
   </div>
   <div class="transaction-historic">
     <div class="transaction-list-wrapper">
       <div class="transaction-details"
+           [ngStyle]="{'border-left':'10px solid' + transaction.categoryCode}"
            *ngFor="let transaction of transactions">
         <div class="date">{{transaction.transactionDate | date: 'MMM. d'}}</div>
         <div class="image">

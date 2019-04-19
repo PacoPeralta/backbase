@@ -13,7 +13,7 @@ export class TransactionsComponent {
   amountFilterOrder = 'desc';
   searchByTypeValue = '';
 
-  sortData(key, order) {
+  sortString(key, order) {
     return (val1, val2) => {
       if (!val1.hasOwnProperty(key) || !val2.hasOwnProperty(key)) {
         return 0;
@@ -36,20 +36,25 @@ export class TransactionsComponent {
     };
   }
 
-  toggleSorterAction(sorter) {
-    if (sorter === 'transactionDate') {
-      this.dateFilterOrder = this.dateFilterOrder === 'desc' ? 'asc' : 'desc';
-    } else if (sorter === 'merchant') {
-      this.beneficiaryFilterOrder = this.beneficiaryFilterOrder === 'desc' ? 'asc' : 'desc';
-    } else {
-      this.amountFilterOrder = this.amountFilterOrder === 'desc' ? 'asc' : 'desc';
-    }
+  sortAmount() {
+    this.dateFilterOrder === 'desc' ?
+      this.transactions = this.transactions.sort((val1, val2) => Number(val1.amount) - Number(val2.amount)) :
+      this.transactions = this.transactions.sort((val1, val2) => Number(val2.amount) - Number(val1.amount));
+    this.dateFilterOrder = this.dateFilterOrder === 'desc' ? 'asc' : 'desc';
   }
 
-  sortAction(key: string, order: string) {
-    const cloneInfo = [...INFO.data];
-    this.transactions = cloneInfo.sort(this.sortData(key, order));
-    this.toggleSorterAction(key);
+  sortDate() {
+    this.amountFilterOrder === 'desc' ?
+      this.transactions = this.transactions.sort((val1, val2) =>
+        val1.transactionDate - val2.transactionDate) :
+      this.transactions = this.transactions.sort((val1, val2) =>
+        val2.transactionDate - val1.transactionDate);
+    this.amountFilterOrder = this.amountFilterOrder === 'desc' ? 'asc' : 'desc';
+  }
+
+  sortBeneficiary() {
+    this.transactions = this.transactions.sort(this.sortString('merchant', this.beneficiaryFilterOrder));
+    this.beneficiaryFilterOrder = this.beneficiaryFilterOrder === 'desc' ? 'asc' : 'desc';
   }
 
   searchByTyping(event: any) {
