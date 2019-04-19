@@ -53,6 +53,6 @@ Because of I running out of time, I can't create my test cases.
 Anyway, I'll add this test cases in the next commit to my Github repository!
 
 ##Final Message
-If you want it you can download this form Github in https://github.com/PacoPeralta/backbase.git
+If you want it you can download this from Github in https://github.com/PacoPeralta/backbase.git
 Thank you very much for this test and I hope you enjoy it as I did creating it!
 Have fun!
