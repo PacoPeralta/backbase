@@ -1,0 +1,100 @@
+@import "../../variables";
+@import "../../mixins";
+
+.transactions {
+  background-color: $primary-color;
+
+  h2 {
+    @include component-title("../../assets/icons/briefcase.png");
+  }
+
+  .filters {
+    display: flow-root;
+    padding: 25px;
+
+    .searcher {
+      float: left;
+
+      input {
+        border: none;
+        border-bottom: 1px solid $gray;
+        font-size: 1.2em;
+        padding: 0 15px 10px;
+        outline: none;
+      }
+
+      button {
+        line-height: 2;
+      }
+    }
+
+    .button-wrapper {
+      align-items: center;
+      display: flex;
+      float: right;
+      justify-content: center;
+
+      > span {
+        display: block;
+        font-size: .7em;
+        padding-right: 25px;
+      }
+
+      button {
+        border: 1px solid $gray;
+        border-radius: 0;
+        padding: 0 25px;
+
+        small {
+          color: $gray;
+          display: inline-block;
+          font-size: 0.7em;
+          padding: 1px;
+          transform: rotate(90deg);
+          -webkit-transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .transaction-historic {
+      padding: 0 25px 25px;
+
+    .transaction-list-wrapper {
+      border-right: 1px solid $gray;
+
+      .transaction-details {
+        align-items: center;
+        border-top: solid 1px $gray;
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 13px 0;
+        position: relative;
+
+        &:last-child {
+          border-bottom: solid 1px $gray;
+        }
+
+        > div {
+          padding: 0 25px;
+        }
+
+        .beneficiary {
+          flex: 1;
+        }
+
+        .image {
+          img {
+            filter: grayscale(100%);
+            height: 42px;
+            width: 42px;
+            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="transactions mat-elevation-z2">
+  <h2>Recent Transactions</h2>
+  <div class="filters">
+    <div class="searcher">
+      <input type="text"
+             placeholder="Search by typing..." [(ngModel)]="value" />
+      <button mat-button
+              *ngIf="value"
+              matSuffix
+              (click)="value=''">x</button>
+    </div>
+    <div class="button-wrapper">
+      <span>Sort by</span>
+      <div class="buttons">
+        <button mat-button
+                (click)="sortAction('transactionDate', dateFilterOrder)">DATE <small>&#9658;</small></button>
+        <button mat-button
+                (click)="sortAction('merchant', beneficiaryFilterOrder)">BENEFICIARY <small>&#9658;</small></button>
+        <button mat-button
+                (click)="sortAction('amount', amountFilterOrder)">AMOUNT <small>&#9658;</small></button>
+      </div>
+    </div>
+  </div>
+  <div class="transaction-historic">
+    <div class="transaction-list-wrapper">
+      <div class="transaction-details"
+           *ngFor="let transaction of transactions">
+        <div class="date">{{transaction.transactionDate | date: 'MMM. d'}}</div>
+        <div class="image">
+          <img src="{{ transaction.merchantLogo }}" alt="{{transaction.merchant}}">
+        </div>
+        <div class="beneficiary">
+          <h4>{{transaction.merchant}}</h4>
+          <span>{{transaction.transactionType}}</span>
+        </div>
+        <div class="amount">{{transaction.amount | currency}}</div>
+      </div>
+    </div>
+  </div>
+</div>

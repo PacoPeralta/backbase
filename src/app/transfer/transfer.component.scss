@@ -7,13 +7,7 @@
   overflow: hidden;
 
   h2 {
-    background-color: $secondary-color;
-    background-image: url("../../assets/icons/arrows.png");
-    background-position: 30px center;
-    background-repeat: no-repeat;
-    color: $primary-color;
-    padding: 15px 0;
-    text-align: center;
+    @include component-title("../../assets/icons/arrows.png");
   }
 
   form {

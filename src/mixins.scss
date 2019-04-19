@@ -1,7 +1,31 @@
+@import "variables";
 /*
 Global parameters styles as mixins
 */
 @mixin disabled{
   background-color: #f2f2f2;
   color: #adadad;
+}
+
+@mixin component-title($image) {
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 15px 0;
+  position: relative;
+  text-align: center;
+
+  &:after {
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: 0;
+    content: "";
+    height: 25px;
+    left: 25px;
+    margin: auto;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 30px;
+  }
 }

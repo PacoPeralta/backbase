@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatInputModule} from '@angular/material';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TransferComponent
+    TransferComponent,
+    TransactionsComponent,
   ],
   imports: [
     BrowserModule,
