@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {INFO} from '../data.service';
 
 @Component({
   selector: 'app-transfer',
@@ -52,7 +53,18 @@ export class TransferComponent implements OnInit {
   }
 
   confirmTransfer() {
-    console.log(this.transferForm.value);
+    const randomNumber = Math.floor(Math.random() * Math.floor(9));
+    const data = {
+      amount: '',
+      categoryCode: INFO.data[randomNumber].categoryCode,
+      merchant: '',
+      merchantLogo: INFO.data[randomNumber].merchantLogo,
+      transactionDate: Number(new Date()),
+      transactionType: INFO.data[randomNumber].transactionType
+    };
+    data.amount = this.transferForm.get('amount').value;
+    data.merchant = this.transferForm.get('to_account').value;
+    INFO.data.unshift(data);
     this.money = this.money - this.transferForm.value.amount;
     this.createFormController();
     this.transferForm.get('from_account')
