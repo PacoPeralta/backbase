@@ -39,7 +39,7 @@ export class TransactionsComponent {
   dateFilterOrder = 'desc';
   beneficiaryFilterOrder = 'desc';
   amountFilterOrder = 'desc';
-  value = '';
+  searchByTypeValue = '';
 
   sortData(key, order) {
     return (val1, val2) => {
@@ -78,5 +78,17 @@ export class TransactionsComponent {
     const cloneInfo = [...INFO.data];
     this.transactions = cloneInfo.sort(this.sortData(key, order));
     this.toggleSorterAction(key);
+  }
+
+  searchByTyping(event: any) {
+    const letter = event.target.value;
+    const cloneInfo = [...INFO.data];
+    this.transactions = cloneInfo.filter(
+      transaction => transaction.merchant.toUpperCase().includes(letter.toUpperCase()));
+  }
+
+  searchByTypingReset() {
+    this.searchByTypeValue = '';
+    this.transactions = INFO.data;
   }
 }

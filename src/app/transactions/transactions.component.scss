@@ -97,4 +97,13 @@
       }
     }
   }
+
+  .no-transactions-result {
+    text-align: center;
+
+    span {
+      color: $secondary-color;
+      display: block;
+    }
+  }
 }

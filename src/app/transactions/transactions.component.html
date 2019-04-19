@@ -3,11 +3,13 @@
   <div class="filters">
     <div class="searcher">
       <input type="text"
-             placeholder="Search by typing..." [(ngModel)]="value" />
+             placeholder="Search by typing..."
+             [(ngModel)]="searchByTypeValue"
+             (keyup)="searchByTyping($event)"/>
       <button mat-button
-              *ngIf="value"
+              *ngIf="searchByTypeValue"
               matSuffix
-              (click)="value=''">x</button>
+              (click)="searchByTypingReset()">x</button>
     </div>
     <div class="button-wrapper">
       <span>Sort by</span>
@@ -35,6 +37,10 @@
         </div>
         <div class="amount">{{transaction.amount | currency}}</div>
       </div>
+    </div>
+    <div class="no-transactions-result" *ngIf="!transactions.length">
+      <img src="../../assets/icons/no_found.jpg" alt="No found">
+      <span class="message">Mmm... No transactions found.</span>
     </div>
   </div>
 </div>
