@@ -4,7 +4,13 @@
     <img src="../assets/images/logo.jpg"
          alt="Peachtree Bank">
   </header>
+  <main>
+    <div class="transfer-component">
+      <app-transfer></app-transfer>
+    </div>
+    <div class="transactions-component">
+      <app-transactions></app-transactions>
+    </div>
+    <router-outlet></router-outlet>
+  </main>
 </div>
-<app-transfer></app-transfer>
-<app-transactions></app-transactions>
-<router-outlet></router-outlet>

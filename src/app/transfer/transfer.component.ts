@@ -48,7 +48,7 @@ export class TransferComponent implements OnInit {
 
   getAmountError(): string {
     return this.transferForm.get('amount').hasError('max') ?
-      `Oops! It looks like this amount pass the $ -500.00 balance allowed, please try another amount` :
+      `Oops! this amount pass the $ -500.00 balance allowed, please try another amount` :
       `Don't you want to send some money?`;
   }
 

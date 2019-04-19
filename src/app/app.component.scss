@@ -8,4 +8,43 @@ header {
   height: 90px;
   vertical-align: middle;
   width: 100vw;
+
+  img {
+    max-width: 450px;
+    min-width: 220px;
+    width: 50%;
+  }
+}
+
+main {
+  display: flow-root;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 15px;
+
+  .transfer-component,
+  .transactions-component {
+    display: flow-root;
+    float: left;
+    width: 100%;
+  }
+
+  .transfer-component {
+    padding-bottom: 25px;
+  }
+
+}
+
+/* Media queries */
+@media screen and (min-width: $break-medium) {
+  main {
+    .transfer-component {
+      width: 320px;
+    }
+
+    .transactions-component {
+      float: right;
+      width: calc(100% - 350px);
+    }
+  }
 }

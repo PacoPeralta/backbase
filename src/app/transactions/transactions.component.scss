@@ -10,17 +10,20 @@
 
   .filters {
     display: flow-root;
-    padding: 25px;
+    padding: 10px;
 
     .searcher {
       float: left;
+      width: 100%;
 
       input {
         border: none;
         border-bottom: 1px solid $gray;
         font-size: 1.2em;
-        padding: 0 15px 10px;
+        max-width: 240px;
         outline: none;
+        padding: 0 15px 10px;
+        width: 100%;
       }
 
       button {
@@ -30,9 +33,10 @@
 
     .button-wrapper {
       align-items: center;
-      display: flex;
-      float: right;
+      float: left;
       justify-content: center;
+      padding-top: 25px;
+      width: 100%;
 
       > span {
         display: block;
@@ -43,7 +47,7 @@
       button {
         border: 1px solid $gray;
         border-radius: 0;
-        padding: 0 25px;
+        padding: 10px;
 
         small {
           color: $gray;
@@ -58,7 +62,6 @@
   }
 
   .transaction-historic {
-      padding: 0 25px 25px;
 
     .transaction-list-wrapper {
       border-right: 1px solid $gray;
@@ -71,6 +74,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: flex-start;
+        overflow-x: scroll;
         padding: 13px 0;
         position: relative;
 
@@ -99,11 +103,45 @@
   }
 
   .no-transactions-result {
+    padding: 20px 0;
     text-align: center;
 
     span {
       color: $secondary-color;
       display: block;
+    }
+  }
+}
+
+/* Media queries */
+@media screen and (min-width: $break-small) {
+  .transactions {
+    .filters {
+      padding: 25px;
+      .button-wrapper {
+        button {
+          padding: 0 25px;
+        }
+      }
+    }
+    .transaction-historic {
+      padding: 0 25px 25px;
+    }
+  }
+}
+
+@media screen and (min-width: $break-medium) {
+  .transactions {
+    .filters {
+      .searcher {
+        width: 30%;
+      }
+      .button-wrapper {
+        display: flex;
+        float: right;
+        padding-top: 0;
+        width: auto;
+      }
     }
   }
 }

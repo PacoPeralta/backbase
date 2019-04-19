@@ -1,8 +1,14 @@
 /*
 Global style values declaration as variables
 */
+
+// Template colors
 $primary-color: #fff;
 $secondary-color: #0c8397;
 $contrast-color: #e95912;
 $disabled: #f2f2f2;
 $gray: #adadad;
+
+// Media queries breakpoints
+$break-small: 640px;
+$break-medium: 1024px;

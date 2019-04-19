@@ -90,3 +90,16 @@ table {
 html, body {
   min-height: 100vh;
 }
+
+app-root {
+  display: flow-root;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.54);
+}
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+  background-color: transparent;
+}
